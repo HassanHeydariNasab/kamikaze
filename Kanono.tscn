@@ -1,0 +1,85 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://Kanono.gd" type="Script" id=1]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 100.499
+
+[node name="Kanono" type="Area2D"]
+
+transform/scale = Vector2( 0.4, 0.4 )
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision/layers = 4
+collision/mask = 2050
+script/script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Korpo" type="Polygon2D" parent="."]
+
+polygon = Vector2Array( 0, -100, -40, -90, -70, -70, -90, -40, -100, 0, -90, 40, -70, 70, -40, 90, 0, 100, 40, 90, 70, 70, 90, 40, 100, 0, 90, -40, 70, -70, 40, -90 )
+uv = Vector2Array(  )
+color = Color( 0.129412, 0.129412, 0.129412, 1 )
+vertex_colors = ColorArray(  )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="Tubo" type="Polygon2D" parent="Korpo"]
+
+transform/scale = Vector2( 1, 1 )
+polygon = Vector2Array( 25, 75, 25, 200, -25, 200, -25, 75 )
+uv = Vector2Array(  )
+color = Color( 0.129412, 0.129412, 0.129412, 1 )
+vertex_colors = ColorArray(  )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="Pafi_tempilo" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 0.7
+one_shot = false
+autostart = true
+
+[node name="Vivo" type="Label" parent="."]
+
+rect/scale = Vector2( 3, 3 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -50.0
+margin/top = -25.0
+margin/right = -10.0
+margin/bottom = -11.0
+text = "999"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[connection signal="timeout" from="Pafi_tempilo" to="." method="_on_Pafi_tempilo_timeout"]
+
+
