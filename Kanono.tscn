@@ -44,7 +44,6 @@ invert/border = 100.0
 
 [node name="Tubo" type="Polygon2D" parent="Korpo"]
 
-transform/scale = Vector2( 1, 1 )
 polygon = Vector2Array( 25, 75, 25, 200, -25, 200, -25, 75 )
 uv = Vector2Array(  )
 color = Color( 0.129412, 0.129412, 0.129412, 1 )
@@ -60,7 +59,7 @@ invert/border = 100.0
 [node name="Pafi_tempilo" type="Timer" parent="."]
 
 process_mode = 1
-wait_time = 0.7
+wait_time = 1.0
 one_shot = false
 autostart = true
 
